@@ -280,11 +280,11 @@ def password_encoder_512(password):
 
 def parse_dbdata_for_excel_format(page, values):
     if page == 'sensor_event':
-        tmp = ['정상' if v == 1 else '이상' for v in values[6:10]]
+        tmp = ['normal' if v == 1 else 'abnormal' for v in values[6:10]]
         tmp.append(values[10].strftime("%Y-%m-%d %H:%M:%S") if values[10] is not None else None)
         values = values[:6]
     elif page == 'repeater_event':
-        tmp = ['정상' if v == 1 else '이상' for v in values[5:9]]
+        tmp = ['normal' if v == 1 else 'abnormal' for v in values[5:9]]
         tmp.append(values[9].strftime("%Y-%m-%d %H:%M:%S") if values[9] is not None else None)
         values = values[:5]
 
@@ -301,8 +301,8 @@ def parse_dbdata_for_excel_format(page, values):
     if page == 'user':
         del values[-1]
         values[1] = '****'
-        values[3] = '사용' if values[3] == 1 else '미사용'
-        values[4] = '관리' if values[4] == 1 else '조회'
+        values[3] = 'use' if values[3] == 1 else 'unused'
+        values[4] = 'management' if values[4] == 1 else 'search'
     return values
 
 @app.route('/eng/api/v1/make_excel', methods=['POST'])

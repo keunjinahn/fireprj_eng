@@ -54,7 +54,7 @@
           :server-items-length="users.total"
           :search="users.search"
           :items-per-page="5"
-          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${users.total} in ${(users.options.page - 1) * users.options.itemsPerPage + 1 } - ${(users.options.page - 1) * users.options.itemsPerPage + users.options.itemsPerPage}`}"
           @click:row="openViewPopup"
           class="elevation-1 mt-4 clickable-row">                   
           <template v-slot:[`item.delete`]="{item}">
@@ -316,7 +316,7 @@ export default {
       }
       let {data} = await this.$http.post('make_excel', params)
 
-      var url = this.$session.getWebURL() + '/api/v1/save_excel/' + data.filename
+      var url = this.$session.getWebURL() + '/eng/api/v1/save_excel/' + data.filename
       axios({
         method: 'get',
         url:url,

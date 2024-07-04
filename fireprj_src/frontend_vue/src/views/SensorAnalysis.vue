@@ -38,7 +38,7 @@
           :items-per-page="5"
           single-select
           item-key="id"
-          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${sensor.total} in ${(sensor.options.page - 1) * sensor.options.itemsPerPage + 1 } - ${(sensor.options.page - 1) * sensor.options.itemsPerPage + sensor.options.itemsPerPage}`}"
           class="elevation-1 mt-4">
           <template v-slot:item="row">
             <tr @click="onShowGraph(row.item,row)" :class="{'row-active': row.item.id == sensor.selectedId}">

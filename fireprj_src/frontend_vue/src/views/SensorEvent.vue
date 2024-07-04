@@ -45,7 +45,7 @@
           :server-items-length="sensor.total"
           :search="sensor.search"
           :items-per-page="5"
-          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${sensor.total} in ${(sensor.options.page - 1) * sensor.options.itemsPerPage + 1 } - ${(sensor.options.page - 1) * sensor.options.itemsPerPage + sensor.options.itemsPerPage}`}"
           class="elevation-1 mt-4">
           <template v-slot:item="row">
             <tr @click="onSensorItemClick(row.item,row)" :class="{'row-active': row.item.id == sensor.selectedId}">
@@ -87,7 +87,7 @@
         :options.sync="event.options"
         :server-items-length="event.total"
         :items-per-page="5"
-        :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+        :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${event.total} in ${(event.options.page - 1) * event.options.itemsPerPage + 1 } - ${(event.options.page - 1) * event.options.itemsPerPage + event.options.itemsPerPage}`}"
         class="elevation-1 mt-4">
         <template v-slot:item="row">
           <tr>
@@ -205,7 +205,7 @@ export default {
       }
       let {data} = await this.$http.post('make_excel', params)
 
-      var url = this.$session.getWebURL() + '/api/v1/save_excel/' + data.filename
+      var url = this.$session.getWebURL() + '/eng/api/v1/save_excel/' + data.filename
       axios({
         method: 'get',
         url:url,

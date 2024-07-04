@@ -46,7 +46,7 @@
           :items-per-page="5"
           single-select
           item-key="id"
-          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+          :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${repeater.total} in ${(repeater.options.page - 1) * repeater.options.itemsPerPage + 1 } - ${(repeater.options.page - 1) * repeater.options.itemsPerPage + repeater.options.itemsPerPage}`}"
           
           class="elevation-1 mt-4 ">
           <template v-slot:item="row">
@@ -125,7 +125,7 @@
         :options.sync="event.options"
         :server-items-length="event.total"
         :items-per-page="5"
-        :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`}"
+        :footer-props="{'items-per-page-options': [5, 10, 15,20,25,30,-1],'items-per-page-text': `Rows per page`,'page-text': `${event.total} in ${(event.options.page - 1) * event.options.itemsPerPage + 1 } - ${(event.options.page - 1) * event.options.itemsPerPage + event.options.itemsPerPage}`}"
         class="elevation-1 mt-4">
         <template v-slot:item="row">
           <tr>
@@ -244,7 +244,7 @@ export default {
       }
       let {data} = await this.$http.post('make_excel', params)
 
-      var url = this.$session.getWebURL() + '/api/v1/save_excel/' + data.filename
+      var url = this.$session.getWebURL() + '/eng/api/v1/save_excel/' + data.filename
       axios({
         method: 'get',
         url:url,
