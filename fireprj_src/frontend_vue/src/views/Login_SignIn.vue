@@ -93,7 +93,7 @@ export default {
     white-space: pre-line;
   }
   .login-panel-inner {
-    width: 380px;
+    width: 480px;
   }
   .login-input-wrap {
   }
@@ -134,11 +134,9 @@ export default {
     overflow: hidden;
     flex: 1 1 50%;
     padding: 60px 0;
-    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
   .login-legend {
     text-align: center;

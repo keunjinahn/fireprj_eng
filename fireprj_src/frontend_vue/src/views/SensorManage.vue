@@ -426,12 +426,12 @@ export default {
       sensor: {
         headers: [
           {text: 'No.', value: 'id', sortable: false, align: 'center', width: 20 },
-          {text: 'Sensor No.', value: 'sensor_idx', sortable: false,align: 'center', width: 80},
+          {text: 'Sensor ID.', value: 'sensor_idx', sortable: false,align: 'center', width: 80},
           {text: "Customer ID", value: "fk_customer_idx",align: 'center', sortable: false, width: 60},
           {text: "Receiver No.", value: "receiver_id",align: 'center', sortable: false, width: 40},
           {text: "System No.", value: "system_id",align: 'center', sortable: false, width: 20},
           {text: "Repeater No.", value: "repeater_id",align: 'center', sortable: false, width: 20},
-          {text: "Sensor No.", value: "sensor_id",align: 'center', sortable: false, width: 20},
+          {text: "Sensor No.", value: "sensor_id",aligden: 'center', sortable: false, width: 20},
           {text: "Modify/Delete", value: "delete",align: 'center', sortable: false, width: 20},
         ],
         data: [],

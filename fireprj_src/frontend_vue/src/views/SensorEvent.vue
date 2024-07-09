@@ -167,6 +167,8 @@ export default {
         let filters_and = []
         let order_by = []
         filters_and.push({name: 'fk_customer_idx', op: 'eq', val: item.fk_customer_idx})
+        filters_and.push({name: 'receiver_id', op: 'eq', val: item.receiver.receiver_id})
+        //filters_and.push({name: 'repeter_id', op: 'eq', val: item.repeter.repeter_id})
         filters_and.push({name: 'sensor_id', op: 'eq', val: item.sensor_id})
         order_by.push({field: "event_log_idx", direction: 'desc'})
         let q = {
@@ -274,7 +276,7 @@ export default {
           {text: "Event time", value: "event_datetime", sortable: false,align: 'center', width: 80}, 
           {text: "Event No.", value: "event_id", sortable: false,align: 'center', width: 80}, 
           {text: "Sensor current value", value: "sensor_value",align: 'center', sortable: false, width: 60},
-          {text: "Event dewc", value: "event_desc",align: 'center', sortable: false, width: 150},
+          {text: "Event desc", value: "event_desc",align: 'center', sortable: false, width: 150},
           {text: "I/O terminal number", value: "inout_id",align: 'center', sortable: false, width: 40},          
         ],
         data: [],
